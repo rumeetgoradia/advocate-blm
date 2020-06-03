@@ -1,0 +1,55 @@
+.argument-box {
+	padding: 1.5rem;
+	border: 1px solid whitesmoke;
+	border-radius: 1rem;
+	position: relative;
+	z-index: 7;
+	opacity: 0.75;
+	margin-bottom: 1.25rem;
+	@media screen and (max-width: 1199px) {
+		margin-bottom: 0.75rem;
+	}
+	transition: opacity 0.3s linear;
+	&:hover {
+		opacity: 1;
+		.tags-container h2.in-progress {
+			background-color: goldenrod;
+		}
+	}
+	h1 {
+		font-weight: 700;
+		letter-spacing: 1px;
+		font-size: 2.25rem;
+		overflow-wrap: break-word;
+		margin-bottom: 1.5rem;
+	}
+	.tags-container {
+		display: flex;
+		align-items: center;
+		h2 {
+			line-height: 1;
+			font-weight: 500;
+			letter-spacing: 2px;
+			font-size: 1.25rem;
+			margin: 0;
+			text-transform: uppercase;
+			padding: 0.75rem 1rem;
+			border-radius: 0.25rem;
+			color: black;
+			background-color: whitesmoke;
+			width: auto;
+			&.in-progress {
+				transition: background-color 0.3s linear;
+			}
+		}
+	}
+	.argument-link {
+		position: absolute;
+		z-index: 8;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+}

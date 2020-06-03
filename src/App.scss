@@ -1,0 +1,17 @@
+#body {
+	min-height: 100%;
+	font-family: "Roboto", sans-serif;
+	color: whitesmoke;
+	.background-container {
+		position: fixed;
+		z-index: 5;
+		height: 100vh;
+		width: 100vw;
+		background-color: black;
+		background: radial-gradient(at bottom left, rgb(24, 26, 27), black);
+	}
+	.section {
+		position: relative;
+		z-index: 6;
+	}
+}
