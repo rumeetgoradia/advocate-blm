@@ -1,7 +1,119 @@
 #home {
-	padding: 2rem 4rem;
+	padding-left: 4rem;
+	padding-right: 4rem;
 	@media screen and (max-width: 1199px) {
-		padding: 2rem 2rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	#header-section {
+		margin-bottom: 1.5rem;
+		position: relative;
+		border-bottom: 1px solid whitesmoke;
+		padding-bottom: 1rem;
+		h1 {
+			font-weight: 700;
+			text-align: center;
+			font-size: 50px;
+			letter-spacing: 2px;
+			margin-bottom: 0.75rem;
+			transition: all 0.3s linear;
+			@media screen and (min-width: 861px) {
+				margin-bottom: 0;
+				text-align: left;
+				&.show-search {
+					opacity: 0;
+					letter-spacing: -20px;
+				}
+			}
+		}
+		#search-container {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			text-align: right;
+			.search-input {
+				position: absolute;
+				right: 15px;
+				z-index: 20;
+				border-radius: 50px;
+				border: none;
+				height: 54px;
+				width: 0;
+				background-color: rgba(240, 240, 240, 0.9);
+				font-weight: 300;
+				transition: all 0.3s linear;
+				&.show-search {
+					width: calc(100% - 30px);
+					padding: 1.25rem 1.5rem;
+					padding-right: 78px;
+				}
+			}
+			.search-btn {
+				position: relative;
+				z-index: 21;
+				width: 54px;
+				height: 54px;
+				border-radius: 50%;
+				border: none;
+				background: whitesmoke;
+				transition: border-radius 0.3s linear;
+				&.show-search {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+				}
+				&:focus {
+					outline: none;
+				}
+				&:active {
+					.search-icon {
+						transform: translate(-50%, -50%) scale(0.9);
+					}
+				}
+				.search-icon {
+					position: absolute;
+					z-index: 22;
+					top: 50%;
+					left: 50%;
+					font-size: 1.25rem;
+					transform: translate(-50%, -50%);
+					opacity: 1;
+					transition: all 0.3s linear;
+					&.cancel {
+						opacity: 0;
+					}
+					&.show-search {
+						opacity: 0;
+						&.cancel {
+							opacity: 1;
+						}
+					}
+				}
+			}
+			@media screen and (max-width: 860px) {
+				position: static;
+				transform: none;
+				.search-input {
+					width: calc(100% - 30px);
+					padding: 1.25rem 1.5rem;
+					padding-right: 78px;
+				}
+				.search-btn {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+					background-color: transparent;
+					.search-icon {
+						&.show-search {
+							opacity: 1;
+							&.cancel {
+								opacity: 0;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 

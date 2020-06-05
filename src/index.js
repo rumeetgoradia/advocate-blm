@@ -7,6 +7,7 @@ import ReactDOM from "react-dom"
 import { BrowserRouter as Router } from "react-router-dom"
 
 require("typeface-roboto")
+require("animate.css")
 
 ReactDOM.render(
 	<ArgumentProvider>

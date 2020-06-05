@@ -7,8 +7,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "animate.css": "^4.1.0",
     "bootstrap": "^4.5.0",
     "contentful": "^7.14.4",
+    "contentful-management": "^5.26.6",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
@@ -17,6 +19,8 @@
     "react-masonry-css": "^1.0.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-scroll": "^1.7.16",
+    "spinkit": "^2.0.1",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {

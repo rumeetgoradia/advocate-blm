@@ -44,7 +44,7 @@ class ArgumentProvider extends Component {
 
 	getArgument = (slug) => {
 		let tempArgs = [...this.state._arguments]
-		const arg = tempArgs.find((arg) => arg.slug === slug)
+		const arg = tempArgs.find((tempArg) => tempArg.slug === slug)
 		return arg
 	}
 
@@ -62,15 +62,29 @@ class ArgumentProvider extends Component {
 		let argsStartsWith = [..._arguments]
 		let argsIncludes = [..._arguments]
 		argsStartsWith = argsStartsWith.filter((arg) =>
-			arg.toLowerCase().startsWith(searchTerm.toLowerCase().trim())
+			arg.title.toLowerCase().startsWith(searchTerm.toLowerCase().trim())
 		)
-		argsIncludes = argsIncludes.filter((arg) =>
-			arg.toLowerCase().includes(searchTerm.toLowerCase().trim())
+		argsIncludes = argsIncludes.filter(
+			(arg) =>
+				arg.title.toLowerCase().includes(searchTerm.toLowerCase().trim()) &&
+				!argsStartsWith.includes(arg)
 		)
-		argsStartsWith.concat(argsIncludes)
+		argsStartsWith = argsStartsWith.concat(argsIncludes)
 		this.setState({
 			sortedArguments: argsStartsWith,
 		})
+	}
+
+	updateFrequency = (id) => {
+		Client.getEntry(id)
+			.then((entry) => {
+				const freq = entry.fields.frequency + 1
+				entry.fields.frequency = freq
+				console.log(entry)
+				// entry.update()
+				// return entry.update()
+			})
+			.catch((err) => console.log(err))
 	}
 
 	render() {
@@ -80,6 +94,7 @@ class ArgumentProvider extends Component {
 					...this.state,
 					getArgument: this.getArgument,
 					handleChange: this.handleChange,
+					updateFrequency: this.updateFrequency,
 				}}
 			>
 				{this.props.children}

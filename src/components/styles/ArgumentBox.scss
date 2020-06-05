@@ -4,36 +4,44 @@
 	border-radius: 1rem;
 	position: relative;
 	z-index: 7;
-	opacity: 0.75;
 	margin-bottom: 1.25rem;
 	@media screen and (max-width: 1199px) {
 		margin-bottom: 0.75rem;
 	}
 	transition: opacity 0.3s linear;
 	&:hover {
-		opacity: 1;
-		.tags-container h2.in-progress {
-			background-color: goldenrod;
+		h1 {
+			opacity: 1;
+		}
+		.tags-container {
+			opacity: 1;
+			h2.in-progress {
+				background-color: hsl(43, 74%, 60%);
+			}
 		}
 	}
 	h1 {
-		font-weight: 700;
+		font-weight: 500;
 		letter-spacing: 1px;
-		font-size: 2.25rem;
+		font-size: 1.75rem;
 		overflow-wrap: break-word;
 		margin-bottom: 1.5rem;
+		opacity: 0.8;
+		transition: opacity 0.3s linear;
 	}
 	.tags-container {
 		display: flex;
 		align-items: center;
+		opacity: 0.8;
+		transition: opacity 0.3s linear;
 		h2 {
 			line-height: 1;
-			font-weight: 500;
+			font-weight: 300;
 			letter-spacing: 2px;
-			font-size: 1.25rem;
+			font-size: 1rem;
 			margin: 0;
 			text-transform: uppercase;
-			padding: 0.75rem 1rem;
+			padding: 0.75rem calc(1rem - 2px) 0.75rem 1rem;
 			border-radius: 0.25rem;
 			color: black;
 			background-color: whitesmoke;
