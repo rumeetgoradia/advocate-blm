@@ -28,12 +28,19 @@
 		margin-bottom: 1.5rem;
 		opacity: 0.8;
 		transition: opacity 0.3s linear;
+		@media screen and (max-width: 575px) {
+			font-size: 1.25rem;
+		}
 	}
 	.tags-container {
 		display: flex;
 		align-items: center;
 		opacity: 0.8;
 		transition: opacity 0.3s linear;
+		flex-wrap: wrap;
+		@media screen and (max-width: 575px) {
+			margin-bottom: -0.5rem;
+		}
 		h2 {
 			line-height: 1;
 			font-weight: 300;
@@ -46,6 +53,11 @@
 			color: black;
 			background-color: whitesmoke;
 			width: auto;
+			@media screen and (max-width: 575px) {
+				font-size: 0.75rem;
+				margin-bottom: 0.5rem;
+				// padding: 0.5rem calc(0.75rem - 2px) 0.5rem 0.75rem;
+			}
 			&.in-progress {
 				transition: background-color 0.3s linear;
 			}

@@ -13,7 +13,7 @@ function Argument({ context, match }) {
 	let options = {
 		renderNode: {
 			"embedded-asset-block": (node) =>
-				`<div class='img-container'><img src="${node.data.target.fields.file.url}"/></div>`,
+				`<div class='img-container'><img class='img-fluid' src="${node.data.target.fields.file.url}"/></div>`,
 		},
 	}
 
@@ -94,6 +94,7 @@ function Argument({ context, match }) {
 													className="source"
 												>
 													{source.title}
+													{source.year ? " (" + source.year + ")" : ""}
 													<p className="source-number">{index + 1}</p>
 												</a>
 											</Col>
