@@ -3,13 +3,16 @@ import "./styles/Argument.scss"
 import { Col, Container, Row } from "react-bootstrap"
 import React, { useEffect, useRef, useState } from "react"
 
+import ArgumentInfoBox from "../components/ArgumentInfoBox"
 import Loader from "../components/Loader"
+import Masonry from "react-masonry-css"
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
+import { scroller } from "react-scroll"
 import { withArgumentConsumer } from "../context"
 
 // import { ArgumentContext } from "../context"
 
-function Argument({ context, match }) {
+function Argument({ context, match, location }) {
 	let options = {
 		renderNode: {
 			"embedded-asset-block": (node) =>
@@ -23,25 +26,34 @@ function Argument({ context, match }) {
 
 	useEffect(() => {
 		setArg(context.getArgument(match.params.argNo))
-		console.log(match)
 		return () => {}
 	})
 
 	useEffect(() => {
 		if (arg) {
-			if (factsContainer && factsContainer.current) {
-				factsContainer.current.innerHTML = documentToHtmlString(
-					arg.facts,
-					options
-				)
+			const { scrollTo } = location.state
+			console.log(scrollTo)
+			// if (factsContainer && factsContainer.current) {
+			// 	factsContainer.current.innerHTML = documentToHtmlString(
+			// 		arg.facts,
+			// 		options
+			// 	)
+			// }
+			// if (assertionContainer && assertionContainer.current) {
+			// 	assertionContainer.current.innerHTML = documentToHtmlString(
+			// 		arg.assertion,
+			// 		options
+			// 	)
+			// }
+			// // context.updateFrequency(arg.id)
+			if (scrollTo) {
+				scroller.scrollTo(scrollTo, {
+					duration: 1500,
+					delay: 200,
+					smooth: true,
+					offset: 0,
+				})
 			}
-			if (assertionContainer && assertionContainer.current) {
-				assertionContainer.current.innerHTML = documentToHtmlString(
-					arg.assertion,
-					options
-				)
-			}
-			context.updateFrequency(arg.id)
 		}
 	}, [arg])
 
@@ -62,20 +74,53 @@ function Argument({ context, match }) {
 					</Row>
 					<hr className="animate__animated animate__fadeInLeft animate__faster" />
 					{arg.facts ? (
-						<Row>
-							<Col className="animate__animated animate__fadeInUp animate__fast argument-info">
-								<h2>Facts & Statistics</h2>
-								<div ref={factsContainer}></div>
-							</Col>
-						</Row>
+						// <Row>
+						// 	<Col className="animate__animated animate__fadeInUp animate__fast argument-info">
+						// 		<h2 id="facts" name="facts">
+						// 			Facts & Statistics
+						// 		</h2>
+						// 		<div ref={factsContainer}></div>
+						// 	</Col>
+						// </Row>
+						<>
+							<h2 id="facts">Facts & Statistics</h2>
+							<Masonry
+								className="arg-info-grid facts-grid"
+								columnClassName="arg-col-info-grid"
+								breakpoints={{ default: 2, 991: 1 }}
+							>
+								{arg.facts.map((fact, index) => {
+									return (
+										<ArgumentInfoBox data={fact} key={`facts-box-${index}`} />
+									)
+								})}
+								{arg.images.map((image, index) => {
+									return (
+										<ArgumentInfoImageBox
+											image={image}
+											sourceNum={arg.imageSourceNums[index]}
+											key={`image-box-${index}`}
+										/>
+									)
+								})}
+							</Masonry>
+						</>
 					) : null}
-					{arg.assertion ? (
-						<Row>
-							<Col className="animate__animated animate__fadeInUp animate__fast argument-info">
-								<h2>Assertion</h2>
-								<div ref={assertionContainer}></div>
-							</Col>
-						</Row>
+					{arg.assertions ? (
+						<>
+							<h2 id="facts">Assertions</h2>
+							<Masonry
+								className="arg-info-grid facts-grid"
+								columnClassName="arg-col-info-grid"
+								breakpoints={{ default: 2, 991: 1 }}
+							>
+								{arg.assertions.map((fact, index) => {
+									return (
+										<ArgumentInfoBox data={fact} key={`facts-box-${index}`} />
+									)
+								})}
+							</Masonry>
+						</>
 					) : null}
 					{arg.sources ? (
 						<Row>

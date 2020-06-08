@@ -21,7 +21,8 @@
     "react-scripts": "3.4.1",
     "react-scroll": "^1.7.16",
     "spinkit": "^2.0.1",
-    "typeface-roboto": "0.0.75"
+    "typeface-roboto": "0.0.75",
+    "typeface-roboto-condensed": "0.0.75"
   },
   "scripts": {
     "start": "react-scripts start",

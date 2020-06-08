@@ -80,7 +80,7 @@ class ArgumentProvider extends Component {
 			.then((entry) => {
 				const freq = entry.fields.frequency + 1
 				entry.fields.frequency = freq
-				console.log(entry)
+				// console.log(entry)
 				// entry.update()
 				// return entry.update()
 			})

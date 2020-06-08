@@ -3,7 +3,6 @@
 	.argument-title h1 {
 		font-weight: 700;
 		font-size: 2.5rem;
-		letter-spacing: 1px;
 		margin: 0;
 		margin-bottom: 22px;
 	}
@@ -15,7 +14,7 @@
 		animation-delay: 0.5s;
 	}
 	.argument-info {
-		margin-top: 3rem;
+		margin-top: 2rem;
 		margin-bottom: -1rem;
 		&:last-child {
 			margin-bottom: 0;
@@ -38,10 +37,11 @@
 			font-weight: 300;
 			opacity: 0.9;
 			transition: opacity 0.3s linear;
+			margin-bottom: 1.5rem;
 		}
 		h6 {
 			margin-top: -0.75rem;
-			margin-bottom: 0.75rem;
+			margin-bottom: 1rem;
 			text-align: center;
 		}
 		&:hover {

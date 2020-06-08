@@ -20,7 +20,7 @@ function Navbar() {
 	const handleScroll = () => {
 		const bodyScrollTop =
 			document.documentElement.scrollTop || document.body.scrollTop
-		setScrolled(bodyScrollTop > 75 || window.scrollY > 75)
+		setScrolled(bodyScrollTop > 60 || window.scrollY > 60)
 	}
 	return (
 		<div id="navbar" className={`${scrolled ? "scrolled" : ""}`}>
@@ -49,8 +49,8 @@ function Navbar() {
 			<NavLink
 				activeClassName="active-nav-link"
 				className="nav-link"
-				to="/contact"
-				title="Contact/Submit"
+				to="/submit"
+				title="Request / Submit"
 				exact
 			>
 				<div>
@@ -62,6 +62,7 @@ function Navbar() {
 					<FaDollarSign />
 				</div>
 			</a>
+			{/* also other voices w microphone */}
 		</div>
 	)
 }

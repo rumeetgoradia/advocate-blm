@@ -2,7 +2,7 @@ import "./styles/Home.scss"
 
 import { Col, Container, Row } from "react-bootstrap"
 import { FaSearch, FaTimes } from "react-icons/fa"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import ArgumentBox from "../components/ArgumentBox"
 import Loader from "../components/Loader"
@@ -13,6 +13,11 @@ function Home({ context }) {
 	const { loading, sortedArguments, searchTerm, handleChange } = context
 	const [showSearch, setShowSearch] = useState(false)
 
+	useEffect(() => {
+		window.scrollTo(0, 0)
+		return () => {}
+	}, [])
+
 	if (loading) {
 		return (
 			<Loader
@@ -20,6 +25,7 @@ function Home({ context }) {
 			/>
 		)
 	}
+
 	return (
 		<Container fluid className="section" id="home">
 			<Row
@@ -29,7 +35,7 @@ function Home({ context }) {
 			>
 				<Col>
 					<h1 className={`${showSearch ? "show-search" : ""}`}>
-						Advocate Black Lives Matter
+						Advocate <span>Black Lives Matter</span>
 					</h1>
 				</Col>
 				<Col id="search-container">
