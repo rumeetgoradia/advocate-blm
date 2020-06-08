@@ -40,7 +40,7 @@ export default function ArgumentBox({ argument, index }) {
 								Facts
 							</h2>
 						) : null}
-						{argument.assertion ? (
+						{argument.assertions ? (
 							<h2
 								onMouseEnter={() => setScrollTo("assertions")}
 								onMouseLeave={resetScrollTo}

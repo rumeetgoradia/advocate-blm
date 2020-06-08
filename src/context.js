@@ -16,7 +16,7 @@ class ArgumentProvider extends Component {
 		try {
 			let response = await Client.getEntries({
 				content_type: "argument",
-				order: "-fields.frequency,fields.title",
+				order: "fields.title",
 			})
 			let _arguments = this.formatData(response.items)
 			this.setState({

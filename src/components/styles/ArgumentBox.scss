@@ -57,8 +57,9 @@
 			padding: 0.75rem calc(1rem - 2px) 0.75rem 1rem;
 			border-radius: 0.25rem;
 			color: rgba(0, 0, 0, 0.85);
-			background-color: whitesmoke;
+			background-color: rgba(245, 245, 245, 0.8);
 			width: auto;
+			transition: all 0.3s linear;
 			@media screen and (max-width: 575px) {
 				font-size: 0.75rem;
 
@@ -66,6 +67,9 @@
 			}
 			&.in-progress {
 				transition: background-color 0.3s linear;
+			}
+			&:hover {
+				background-color: rgba(245, 245, 245, 1);
 			}
 		}
 	}
