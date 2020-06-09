@@ -26,7 +26,7 @@ export default function ArgumentInfoBox({
 			)}
 			<div className="source-container">
 				<Link
-					to={`source-${index}`}
+					to={`source-${sourceNum - 1}`}
 					delay={200}
 					smooth={true}
 					offset={0}

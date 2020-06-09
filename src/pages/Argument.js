@@ -21,10 +21,12 @@ function Argument({ context, match, location }) {
 	}
 
 	const [arg, setArg] = useState(context.getArgument(match.params.argNo))
+	const [factsAndImgsBoxes, setFactsAndImgsBoxes] = useState()
 	const factsContainer = useRef(null)
 	const assertionContainer = useRef(null)
 
 	useEffect(() => {
+		window.scrollTo(0, 0)
 		setArg(context.getArgument(match.params.argNo))
 		return () => {}
 	})
@@ -32,7 +34,7 @@ function Argument({ context, match, location }) {
 	useEffect(() => {
 		if (arg) {
 			const { scrollTo } = location.state
-			console.log(scrollTo)
+			// console.log(scrollTo)
 			// if (factsContainer && factsContainer.current) {
 			// 	factsContainer.current.innerHTML = documentToHtmlString(
 			// 		arg.facts,
@@ -49,11 +51,39 @@ function Argument({ context, match, location }) {
 			if (scrollTo) {
 				scroller.scrollTo(scrollTo, {
 					duration: 1500,
-					delay: 200,
-					smooth: true,
+					delay: 750,
+					smooth: "easeInOutCubic",
 					offset: -60,
 				})
 			}
+			let factsBoxes = []
+			if (arg.facts) {
+				factsBoxes = arg.facts.map((fact, index) => {
+					return (
+						<ArgumentInfoBox
+							text={fact.text}
+							sourceNum={fact.sourceNum}
+							sourceInfo={fact.sourceInfo}
+							index={index}
+							key={`facts-box-${index}`}
+						/>
+					)
+				})
+			}
+			let imgsBoxes = []
+			if (arg.images) {
+				imgsBoxes = arg.images.map((image, index) => {
+					return (
+						<ArgumentInfoBox
+							image={image}
+							sourceNum={arg.imageSourceNums[index]}
+							index={arg.facts ? index + arg.facts.length - 1 : index}
+							key={`image-box-${index}`}
+						/>
+					)
+				})
+			}
+			setFactsAndImgsBoxes(factsBoxes.concat(imgsBoxes))
 		}
 	}, [arg])
 
@@ -68,21 +98,13 @@ function Argument({ context, match, location }) {
 			<Container fluid className="section" id="argument-page">
 				<Container>
 					<Row>
-						<Col className="animate__animated animate__fadeIn animate__fast argument-title">
+						<Col className="animate__animated animate__fadeIn argument-title">
 							<h1>{arg.title}</h1>
 						</Col>
 					</Row>
-					<hr className="animate__animated animate__fadeInLeft animate__faster" />
-					{arg.facts ? (
-						// <Row>
-						// 	<Col className="animate__animated animate__fadeIn animate__fast argument-info">
-						// 		<h2 id="facts" name="facts">
-						// 			Facts & Statistics
-						// 		</h2>
-						// 		<div ref={factsContainer}></div>
-						// 	</Col>
-						// </Row>
-						<div className="argument-info animate__animated animate__fadeIn animate__fast">
+					<hr className="animate__animated animate__fadeInLeft animate_fast" />
+					{factsAndImgsBoxes ? (
+						<div className="argument-info animate__animated animate__fadeIn ">
 							<h2 id="facts">Facts & Statistics</h2>
 							<Masonry
 								className="arg-info-grid facts-grid"
@@ -92,7 +114,10 @@ function Argument({ context, match, location }) {
 									992: 1,
 								}}
 							>
-								{arg.facts.map((fact, index) => {
+								{factsAndImgsBoxes.map((argInfoBox, index) => {
+									return argInfoBox
+								})}
+								{/* {arg.facts.map((fact, index) => {
 									return (
 										<ArgumentInfoBox
 											text={fact.text}
@@ -103,7 +128,7 @@ function Argument({ context, match, location }) {
 										/>
 									)
 								})}
-								{/* {arg.images
+								{arg.images
 									? arg.images.map((image, index) => {
 											return (
 												<ArgumentInfoBox
@@ -119,7 +144,7 @@ function Argument({ context, match, location }) {
 						</div>
 					) : null}
 					{arg.assertions ? (
-						<div className="argument-info animate__animated animate__fadeIn animate__fast">
+						<div className="argument-info animate__animated animate__fadeIn ">
 							<h2 id="assertions">Assertions</h2>
 							<Masonry
 								className="arg-info-grid assertions-grid"
@@ -144,7 +169,7 @@ function Argument({ context, match, location }) {
 						</div>
 					) : null}
 					{arg.sources ? (
-						<div className="argument-info animate__animated animate__fadeIn animate__fast">
+						<div className="argument-info animate__animated animate__fadeIn ">
 							<h2 id="sources">Sources</h2>
 							<Row id="sources-container" xs={1} sm={2} md={3} lg={4}>
 								{arg.sources.map((source, index) => {
