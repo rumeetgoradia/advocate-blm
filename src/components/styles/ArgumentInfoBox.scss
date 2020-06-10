@@ -9,12 +9,17 @@
 		margin-bottom: 0.75rem;
 	}
 	&:hover {
-		background-color: rgba(160, 160, 160, 0.75);
+		// background-color: rgba(160, 160, 160, 0.75);
+		background-color: #626262;
 		img {
 			filter: grayscale(0%);
 		}
+		p {
+			opacity: 1;
+		}
 	}
 	p {
+		opacity: 0.9;
 		font-size: 1rem;
 		font-weight: 400;
 	}
@@ -30,7 +35,7 @@
 			text-align: right;
 			font-weight: 600;
 			font-size: 1.75rem;
-			color: rgb(87, 87, 87);
+			color: #3d3d3d;
 			padding-left: 0.5rem;
 			font-style: italic;
 			cursor: pointer;
@@ -43,7 +48,7 @@
 			font-weight: 500;
 			font-size: 0.75rem;
 			font-style: italic;
-			color: rgb(87, 87, 87);
+			color: #3d3d3d;
 		}
 	}
 }

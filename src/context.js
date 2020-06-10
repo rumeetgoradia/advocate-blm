@@ -48,6 +48,14 @@ class ArgumentProvider extends Component {
 		return arg
 	}
 
+	clearSearchTerm = () => {
+		this.handleChange({
+			target: {
+				value: "",
+			},
+		})
+	}
+
 	handleChange = (event) => {
 		this.setState(
 			{
@@ -93,6 +101,7 @@ class ArgumentProvider extends Component {
 				value={{
 					...this.state,
 					getArgument: this.getArgument,
+					clearSearchTerm: this.clearSearchTerm,
 					handleChange: this.handleChange,
 					updateFrequency: this.updateFrequency,
 				}}

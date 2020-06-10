@@ -3,7 +3,7 @@ import "./styles/ArgumentBox.scss"
 import { Link, Redirect } from "react-router-dom"
 import React, { useState } from "react"
 
-export default function ArgumentBox({ argument, index }) {
+export default function ArgumentBox({ argument, index, delay }) {
 	const [scrollTo, setScrollTo] = useState(null)
 	const [redirect, setRedirect] = useState(false)
 
@@ -27,8 +27,10 @@ export default function ArgumentBox({ argument, index }) {
 			) : (
 				<div
 					onClick={() => setRedirect(true)}
-					className="argument-box animate__animated animate__fadeIn"
-					style={{ animationDelay: `${150 * index + 300}ms` }}
+					className={`argument-box animate__animated animate__fadeIn ${
+						delay ? "" : "animate__faster"
+					}`}
+					style={{ animationDelay: `${delay ? 150 * index + 300 : 0}ms` }}
 				>
 					<h1>{argument.title}</h1>
 					<div className="tags-container">

@@ -5,18 +5,31 @@ import { FaSearch, FaTimes } from "react-icons/fa"
 import React, { useEffect, useState } from "react"
 
 import ArgumentBox from "../components/ArgumentBox"
+import Header from "../components/Header"
 import Loader from "../components/Loader"
 import Masonry from "react-masonry-css"
 import { withArgumentConsumer } from "../context"
 
 function Home({ context }) {
-	const { loading, sortedArguments, searchTerm, handleChange } = context
-	const [showSearch, setShowSearch] = useState(false)
+	const { loading, sortedArguments } = context
+	const [delay, setDelay] = useState(true)
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
+
 		return () => {}
 	}, [])
+
+	useEffect(() => {
+		if (!loading) {
+			const timeout = setTimeout(() => {
+				setDelay(false)
+			}, sortedArguments.length * 150 + 300 + 1000)
+			return () => {
+				clearTimeout(timeout)
+			}
+		}
+	}, [loading])
 
 	if (loading) {
 		return (
@@ -28,7 +41,7 @@ function Home({ context }) {
 
 	return (
 		<Container fluid className="section" id="home">
-			<Row
+			{/* <Row
 				id="header-section"
 				className="animate__animated animate__fadeIn"
 				xs={1}
@@ -60,8 +73,8 @@ function Home({ context }) {
 						/>
 					</button>
 				</Col>
-			</Row>
-
+			</Row> */}
+			<Header displaySearch={true} />
 			<Masonry
 				breakpointCols={{
 					default: 3,
@@ -72,7 +85,12 @@ function Home({ context }) {
 				columnClassName="args-grid-col"
 			>
 				{sortedArguments.map((arg, index) => (
-					<ArgumentBox argument={arg} key={`argument-${index}`} index={index} />
+					<ArgumentBox
+						argument={arg}
+						key={`argument-${index}`}
+						index={index}
+						delay={delay}
+					/>
 				))}
 			</Masonry>
 		</Container>
