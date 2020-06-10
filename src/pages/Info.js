@@ -1,10 +1,14 @@
 import { Col, Container, Row } from "react-bootstrap"
+import React, { useEffect } from "react"
 
 import Header from "../components/Header"
 import InfoSection from "../components/styles/InfoSection"
-import React from "react"
 
 export default function Info() {
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	})
+
 	return (
 		<Container fluid className="section" id="info">
 			<Container>

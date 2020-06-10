@@ -57,7 +57,11 @@ function Navbar() {
 					<FaPencilAlt />
 				</div>
 			</NavLink>
-			<a className="nav-link" href="/" title="Donate">
+			<a
+				className="nav-link"
+				href="https://blacklivesmatters.carrd.co/#donate"
+				title="Donate (external link)"
+			>
 				<div>
 					<FaDollarSign />
 				</div>

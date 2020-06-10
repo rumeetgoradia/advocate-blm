@@ -22,6 +22,7 @@ export default function ScrollToTop() {
 		<div
 			className={`scroll-to-top ${scrolled ? "show" : ""}`}
 			onClick={() => scroll.scrollToTop()}
+			title={"Scroll to Top"}
 		>
 			<Fist />
 		</div>
