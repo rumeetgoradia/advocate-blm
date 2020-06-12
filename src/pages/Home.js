@@ -5,6 +5,7 @@ import { FaSearch, FaTimes } from "react-icons/fa"
 import React, { useEffect, useState } from "react"
 
 import ArgumentBox from "../components/ArgumentBox"
+import Head from "../components/Head"
 import Header from "../components/Header"
 import Loader from "../components/Loader"
 import Masonry from "react-masonry-css"
@@ -40,8 +41,10 @@ function Home({ context }) {
 	}
 
 	return (
-		<Container fluid className="section" id="home">
-			{/* <Row
+		<>
+			<Head />
+			<Container fluid className="section" id="home">
+				{/* <Row
 				id="header-section"
 				className="animate__animated animate__fadeIn"
 				xs={1}
@@ -74,26 +77,27 @@ function Home({ context }) {
 					</button>
 				</Col>
 			</Row> */}
-			<Header displaySearch={true} />
-			<Masonry
-				breakpointCols={{
-					default: 3,
-					1200: 2,
-					768: 1,
-				}}
-				className="args-grid"
-				columnClassName="args-grid-col"
-			>
-				{sortedArguments.map((arg, index) => (
-					<ArgumentBox
-						argument={arg}
-						key={`argument-${index}`}
-						index={index}
-						delay={delay}
-					/>
-				))}
-			</Masonry>
-		</Container>
+				<Header displaySearch={true} />
+				<Masonry
+					breakpointCols={{
+						default: 3,
+						1200: 2,
+						768: 1,
+					}}
+					className="args-grid"
+					columnClassName="args-grid-col"
+				>
+					{sortedArguments.map((arg, index) => (
+						<ArgumentBox
+							argument={arg}
+							key={`argument-${index}`}
+							index={index}
+							delay={delay}
+						/>
+					))}
+				</Masonry>
+			</Container>
+		</>
 	)
 }
 

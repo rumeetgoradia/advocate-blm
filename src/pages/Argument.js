@@ -4,6 +4,7 @@ import { Col, Container, Row } from "react-bootstrap"
 import React, { useEffect, useRef, useState } from "react"
 
 import ArgumentInfoBox from "../components/ArgumentInfoBox"
+import Head from "../components/Head"
 import InfoSection from "../components/styles/InfoSection"
 import Loader from "../components/Loader"
 import Masonry from "react-masonry-css"
@@ -15,7 +16,7 @@ import { withArgumentConsumer } from "../context"
 
 function Argument({ context, match, location }) {
 	const [arg, setArg] = useState(context.getArgument(match.params.argNo))
-	const [factsAndImgsBoxes, setFactsAndImgsBoxes] = useState()
+	const [factsAndImgsBoxes, setFactsAndImgsBoxes] = useState(null)
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
@@ -25,20 +26,6 @@ function Argument({ context, match, location }) {
 
 	useEffect(() => {
 		if (arg) {
-			// console.log(scrollTo)
-			// if (factsContainer && factsContainer.current) {
-			// 	factsContainer.current.innerHTML = documentToHtmlString(
-			// 		arg.facts,
-			// 		options
-			// 	)
-			// }
-			// if (assertionContainer && assertionContainer.current) {
-			// 	assertionContainer.current.innerHTML = documentToHtmlString(
-			// 		arg.assertion,
-			// 		options
-			// 	)
-			// }
-			// // context.updateFrequency(arg.id)
 			let factsBoxes = []
 			if (arg.facts) {
 				factsBoxes = arg.facts.map((fact, index) => {
@@ -72,7 +59,7 @@ function Argument({ context, match, location }) {
 
 	useEffect(() => {
 		const { scrollTo } = location.state
-		if (scrollTo) {
+		if (scrollTo && factsAndImgsBoxes) {
 			scroller.scrollTo(scrollTo, {
 				duration: 1500,
 				delay: 750,
@@ -91,6 +78,7 @@ function Argument({ context, match, location }) {
 
 	return (
 		<>
+			<Head subtitle={arg.title} />
 			<Container fluid className="section" id="argument-page">
 				<Container>
 					<Row>
@@ -99,7 +87,7 @@ function Argument({ context, match, location }) {
 						</Col>
 					</Row>
 					<hr className="animate__animated animate__fadeInLeft animate_fast" />
-					{factsAndImgsBoxes ? (
+					{factsAndImgsBoxes && factsAndImgsBoxes.length > 0 ? (
 						<InfoSection className="animate__animated animate__fadeIn ">
 							<h2 id="facts">Facts & Statistics</h2>
 							<Masonry

@@ -11,10 +11,12 @@
     "bootstrap": "^4.5.0",
     "contentful": "^7.14.4",
     "contentful-management": "^5.26.6",
+    "formik": "^2.1.4",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "react-icons": "^3.10.0",
     "react-masonry-css": "^1.0.14",
     "react-router-dom": "^5.2.0",
@@ -23,7 +25,8 @@
     "spinkit": "^2.0.1",
     "styled-components": "^5.1.1",
     "typeface-roboto": "0.0.75",
-    "typeface-roboto-condensed": "0.0.75"
+    "typeface-roboto-condensed": "0.0.75",
+    "yup": "^0.29.1"
   },
   "scripts": {
     "start": "react-scripts start",

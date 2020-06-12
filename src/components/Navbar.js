@@ -38,8 +38,8 @@ function Navbar() {
 			<NavLink
 				activeClassName="active-nav-link"
 				className="nav-link"
-				to="/info"
-				title="Info"
+				to="/about"
+				title="About"
 				exact
 			>
 				<div>
