@@ -1,14 +1,13 @@
 import "./styles/Argument.scss"
 
 import { Col, Container, Row } from "react-bootstrap"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import ArgumentInfoBox from "../components/ArgumentInfoBox"
 import Head from "../components/Head"
 import InfoSection from "../components/styles/InfoSection"
 import Loader from "../components/Loader"
 import Masonry from "react-masonry-css"
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
 import { scroller } from "react-scroll"
 import { withArgumentConsumer } from "../context"
 
@@ -59,16 +58,17 @@ function Argument({ context, match, location }) {
 
 	useEffect(() => {
 		const { scrollTo } = location.state
-		if (scrollTo && factsAndImgsBoxes) {
+		if (scrollTo && factsAndImgsBoxes && arg) {
 			scroller.scrollTo(scrollTo, {
 				duration: 1500,
 				delay: 750,
 				smooth: "easeInOutCubic",
 				offset: -60,
+				isDynamic: true,
 			})
 		}
 		return () => {}
-	}, [factsAndImgsBoxes])
+	})
 
 	if (!arg) {
 		return (
@@ -89,7 +89,9 @@ function Argument({ context, match, location }) {
 					<hr className="animate__animated animate__fadeInLeft animate_fast" />
 					{factsAndImgsBoxes && factsAndImgsBoxes.length > 0 ? (
 						<InfoSection className="animate__animated animate__fadeIn ">
-							<h2 id="facts">Facts & Statistics</h2>
+							<h2 id="facts" name="facts">
+								Facts & Statistics
+							</h2>
 							<Masonry
 								className="arg-info-grid facts-grid"
 								columnClassName="arg-info-grid-col"
@@ -106,7 +108,9 @@ function Argument({ context, match, location }) {
 					) : null}
 					{arg.assertions ? (
 						<InfoSection className="animate__animated animate__fadeIn ">
-							<h2 id="assertions">Assertions</h2>
+							<h2 id="assertions" name="assertions">
+								Assertions
+							</h2>
 							<Masonry
 								className="arg-info-grid assertions-grid"
 								columnClassName="arg-info-grid-col"
@@ -131,7 +135,9 @@ function Argument({ context, match, location }) {
 					) : null}
 					{arg.sources ? (
 						<InfoSection className=" animate__animated animate__fadeIn">
-							<h2 id="sources">Sources</h2>
+							<h2 id="sources" name="sources">
+								Sources
+							</h2>
 							<Row id="sources-container" xs={1} sm={2} md={3} lg={4}>
 								{arg.sources.map((source, index) => {
 									return (

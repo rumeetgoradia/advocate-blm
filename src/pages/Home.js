@@ -1,10 +1,9 @@
 import "./styles/Home.scss"
 
-import { Col, Container, Row } from "react-bootstrap"
-import { FaSearch, FaTimes } from "react-icons/fa"
 import React, { useEffect, useState } from "react"
 
 import ArgumentBox from "../components/ArgumentBox"
+import { Container } from "react-bootstrap"
 import Head from "../components/Head"
 import Header from "../components/Header"
 import Loader from "../components/Loader"

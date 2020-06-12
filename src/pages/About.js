@@ -1,6 +1,6 @@
-import { Col, Container, Row } from "react-bootstrap"
 import React, { useEffect } from "react"
 
+import { Container } from "react-bootstrap"
 import Head from "../components/Head"
 import Header from "../components/Header"
 import InfoSection from "../components/styles/InfoSection"

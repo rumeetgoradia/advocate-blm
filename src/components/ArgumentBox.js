@@ -1,17 +1,12 @@
 import "./styles/ArgumentBox.scss"
 
-import { Link, Redirect } from "react-router-dom"
 import React, { useState } from "react"
+
+import { Redirect } from "react-router-dom"
 
 export default function ArgumentBox({ argument, index, delay }) {
 	const [scrollTo, setScrollTo] = useState(null)
 	const [redirect, setRedirect] = useState(false)
-
-	// const initRedirect = (scrollID) => {
-	// 	setScrollTo(scrollID)
-	// 	console.log(scrollID)
-	// 	setRedirect(true)
-	// }
 
 	const resetScrollTo = () => {
 		setScrollTo(null)
