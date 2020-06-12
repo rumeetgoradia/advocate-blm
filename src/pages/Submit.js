@@ -170,6 +170,10 @@ export default function Submit() {
 											<Col>
 												<label htmlFor="argument">
 													<h3>Argument</h3>
+													<h5>
+														Please enter an argument that you would like to see
+														countered on this website.
+													</h5>
 												</label>
 												<RequiredInputField name="argument" type="input" />
 											</Col>
@@ -179,9 +183,10 @@ export default function Submit() {
 												<label htmlFor="argument">
 													<h3>Facts</h3>
 													<h5>
-														Please enter each fact as a direct quote on a new
-														line, followed by the URL of its source in
-														parentheses.
+														Do you have any facts or statistics that would
+														counter the above argument? If so, please enter each
+														fact or statistic as a direct quote on a new line,
+														followed by the URL of its source in parentheses.
 													</h5>
 												</label>
 												<Field name="facts" type="text" as={StyledTextArea} />
@@ -192,9 +197,11 @@ export default function Submit() {
 												<label htmlFor="argument">
 													<h3>Assertions</h3>
 													<h5>
-														Please enter each assertion (expert opinion) as a
-														direct quote on a new line, followed by the URL of
-														its source in parentheses.
+														Do you have any assertions (expert opinions) that
+														would counter the above argument? If so, please
+														enter each assertion (expert opinion) as a direct
+														quote on a new line, followed by the URL of its
+														source in parentheses.
 													</h5>
 												</label>
 												<Field
