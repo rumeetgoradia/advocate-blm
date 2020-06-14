@@ -65,9 +65,11 @@
 			height: 54px;
 			width: 0;
 			background-color: rgba(240, 240, 240, 0.9);
+			opacity: 0;
 			font-weight: 300;
 			transition: all 0.3s linear;
 			&.show-search {
+				opacity: 1;
 				width: calc(100% - 30px);
 				padding: 1.25rem 1.5rem;
 				padding-right: 70px;
@@ -117,6 +119,7 @@
 			position: static;
 			transform: none;
 			.search-input {
+				opacity: 1;
 				width: calc(100% - 30px) !important;
 				padding: 1rem !important;
 				padding-right: 36px !important;

@@ -57,18 +57,20 @@ function Argument({ context, match, location }) {
 	}, [arg])
 
 	useEffect(() => {
-		const { scrollTo } = location.state
-		if (scrollTo && factsAndImgsBoxes && arg) {
-			scroller.scrollTo(scrollTo, {
-				duration: 1500,
-				delay: 750,
-				smooth: "easeInOutCubic",
-				offset: -60,
-				isDynamic: true,
-			})
+		if (location && location.state) {
+			const { scrollTo } = location.state
+			if (scrollTo && factsAndImgsBoxes && arg) {
+				scroller.scrollTo(scrollTo, {
+					duration: 1500,
+					delay: 750,
+					smooth: "easeInOutCubic",
+					offset: -60,
+					isDynamic: true,
+				})
+			}
+			return () => {}
 		}
-		return () => {}
-	})
+	}, [location, factsAndImgsBoxes, arg])
 
 	if (!arg) {
 		return (
