@@ -81,21 +81,21 @@ export default function About() {
 						<h2>Request / Submit Argument</h2>
 						<p>
 							If you would like to contribute to the information presented on{" "}
-							<em>Advocate Black Lives Matter</em>, you can submit or request
-							data about a specific argument against the movement via the{" "}
+							<em>Advocate Black Lives Matter</em>, you can visit the{" "}
 							<Link
 								className="inline-link"
 								to="/submit"
-								title="Submissions Page"
+								title="Request / Submit Argument"
 							>
 								Submissions page
-							</Link>
-							. If you would like to request an argument, please enter just the
-							argument and submit the form; else, please fill out all relevant
-							information according to the form, along with credible sources to
-							match any facts, statistics, and expert opinions that you submit.
-							You will be attributed for your contribution unless specified
-							otherwise!
+							</Link>{" "}
+							to submit or request data about a specific argument against the
+							movement. If you would like to request an argument, please enter
+							just the argument and submit the form; else, please fill out all
+							relevant information according to the form, along with credible
+							sources to match any facts, statistics, and expert opinions that
+							you submit. You will be attributed for your contribution unless
+							specified otherwise!
 						</p>
 					</InfoSection>
 					<InfoSection

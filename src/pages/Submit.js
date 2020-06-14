@@ -199,9 +199,9 @@ export default function Submit() {
 													<h5>
 														Do you have any assertions (expert opinions) that
 														would counter the above argument? If so, please
-														enter each assertion (expert opinion) as a direct
-														quote on a new line, followed by the URL of its
-														source in parentheses.
+														enter each assertion as a direct quote on a new
+														line, followed by the URL of its source in
+														parentheses.
 													</h5>
 												</label>
 												<Field
