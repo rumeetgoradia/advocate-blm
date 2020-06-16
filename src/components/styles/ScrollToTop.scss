@@ -1,7 +1,13 @@
 .scroll-to-top {
 	position: fixed;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	line-height: 1;
 	bottom: 1rem;
@@ -16,6 +22,7 @@
 	opacity: 0;
 	font-size: 1.5rem;
 	pointer-events: none;
+	-webkit-transition: all 0.3s linear;
 	transition: all 0.3s linear;
 	svg {
 		fill: black;
@@ -32,6 +39,7 @@
 			opacity: 1;
 		}
 		&:active {
+			-webkit-transform: translateY(2px);
 			transform: translateY(2px);
 		}
 	}

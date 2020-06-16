@@ -11,6 +11,7 @@
 		width: 8%;
 		min-width: 25px;
 		margin: 0;
+		-webkit-animation-delay: 0.5s;
 		animation-delay: 0.5s;
 	}
 
@@ -36,6 +37,7 @@
 				color: whitesmoke;
 				letter-spacing: 1px;
 				text-transform: uppercase;
+				-webkit-transition: all 0.3s linear;
 				transition: all 0.3s linear;
 				.source-content {
 					position: relative;
@@ -47,6 +49,7 @@
 					margin: 0;
 					top: 50%;
 					left: 24%;
+					-webkit-transform: translate(-50%, -50%);
 					transform: translate(-50%, -50%);
 					font-weight: 800;
 					font-size: 60px;
@@ -54,6 +57,7 @@
 					pointer-events: none;
 					letter-spacing: -2px;
 					color: rgba(114, 114, 114, 0.45);
+					-webkit-transition: all 0.3s linear;
 					transition: all 0.3s linear;
 				}
 				&:hover {

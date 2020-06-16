@@ -29,6 +29,7 @@
 		overflow-wrap: break-word;
 		margin-bottom: 1.5rem;
 		opacity: 0.8;
+		-webkit-transition: opacity 0.3s linear;
 		transition: opacity 0.3s linear;
 		@media screen and (max-width: 575px) {
 			font-size: 22px;
@@ -37,10 +38,16 @@
 	.tags-container {
 		// position: relative;
 		// z-index: 8;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
 		align-items: center;
 		opacity: 0.8;
+		-webkit-transition: opacity 0.3s linear;
 		transition: opacity 0.3s linear;
+		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		@media screen and (max-width: 575px) {
 			margin-bottom: -0.5rem;
@@ -59,6 +66,7 @@
 			color: rgba(0, 0, 0, 0.85);
 			background-color: rgba(245, 245, 245, 0.8);
 			width: auto;
+			-webkit-transition: all 0.3s linear;
 			transition: all 0.3s linear;
 			@media screen and (max-width: 575px) {
 				font-size: 0.75rem;
@@ -70,6 +78,7 @@
 				font-weight: 500;
 			}
 			&.in-progress {
+				-webkit-transition: background-color 0.3s linear;
 				transition: background-color 0.3s linear;
 			}
 			&:hover {

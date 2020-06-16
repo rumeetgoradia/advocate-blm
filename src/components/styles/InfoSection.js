@@ -16,11 +16,13 @@ const InfoSection = styled.div`
 		letter-spacing: 2px;
 		padding: 0.5rem 0;
 		border-radius: 0.25rem;
+		-webkit-transition: all 0.3s linear;
 		transition: all 0.3s linear;
 	}
 	p {
 		font-weight: 300;
 		opacity: 0.85;
+		-webkit-transition: all 0.3s linear;
 		transition: all 0.3s linear;
 		font-size: 1rem;
 		margin-bottom: 1rem;
@@ -30,6 +32,7 @@ const InfoSection = styled.div`
 		.inline-link {
 			color: #626262;
 			position: relative;
+			-webkit-transition: all 0.3s linear;
 			transition: all 0.3s linear;
 			&:after {
 				content: "";
@@ -39,7 +42,9 @@ const InfoSection = styled.div`
 				bottom: -2px;
 				left: 50%;
 				background-color: whitesmoke;
+				-webkit-transform: translateX(-50%);
 				transform: translateX(-50%);
+				-webkit-transition: width 0.3s linear;
 				transition: width 0.3s linear;
 			}
 			&:hover {
