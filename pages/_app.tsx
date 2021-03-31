@@ -1,3 +1,5 @@
+import { Base } from "@/components/Layout"
+import Navbar from "@/components/Navbar"
 import theme from "@/theme"
 import { CssBaseline, ThemeProvider } from "@material-ui/core"
 import { DefaultSeo } from "next-seo"
@@ -18,7 +20,10 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 			<DefaultSeo {...SEO} />
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
-				<Component {...pageProps} />
+				<Navbar />
+				<Base>
+					<Component {...pageProps} />
+				</Base>
 			</ThemeProvider>
 		</>
 	)
