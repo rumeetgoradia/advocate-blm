@@ -1,54 +1,34 @@
-<p align="center">
-  <a href="https://www.rumeetgoradia.com">
-    <img alt="Rumeet Goradia" src="public/images/logo.png" width="60" />
-  </a>
-</p>
-<h1 align="center">
-Next.js TypeScript Starter
-</h1>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Kick off your Next.js TypeScript project using this example. This starter repo ships with the packages listed below, as well as their base configuration files and development dependencies.
+## Getting Started
 
-## Usage
+First, run the development server:
 
-Use the following command, followed by the name of your project.
-
-```
-npx create-next-app -e https://github.com/rumeetgoradia/nextjs-typescript-starter 
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-## Checklist
-1. Update `package.json` and `constants/seo.ts` with relevant project information. Update `next-seo.config.ts` if needed.
-2. Update brand/logo in `public/images`.
-3. [Generate favicons](https://realfavicongenerator.net/) and save them in `public/favicons`. Update `pages/_document.tsx` if using non-default file names.
-4. Save font files in `public/fonts` and update:
-   - `pages/_document.tsx`
-   - `public/fonts/fonts.css`
-   - `theme/index.ts`
-   - `vercel.json`
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Packages
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-### UI
-- [Material-UI](https://www.npmjs.com/package/@material-ui/core)
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-### Images & Icons
-- [Plaiceholder](https://www.npmjs.com/package/@plaiceholder/next)
-- [SVGR Webpack](https://www.npmjs.com/package/@svgr/webpack)
-- [React Icons](https://www.npmjs.com/package/react-icons)
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-### Forms
-- [React Hook Form](https://www.npmjs.com/package/react-hook-form)
-- [Yup](https://www.npmjs.com/package/yup)
+## Learn More
 
-### HTTP Requests
-- [Axios](https://www.npmjs.com/package/axios)
+To learn more about Next.js, take a look at the following resources:
 
-### SEO
-- [Next SEO](https://www.npmjs.com/package/next-seo)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### Miscellaneous
-- [Preact](https://www.npmjs.com/package/preact)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+## Deploy on Vercel
 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

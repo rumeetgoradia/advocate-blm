@@ -1,6 +1,7 @@
-import { SITE_NAME, SITE_URL } from "./constants"
+import { SITE_NAME, SITE_URL } from "@constants"
+import { NextSeoProps } from "next-seo"
 
-export default {
+const SeoProps: NextSeoProps = {
 	titleTemplate: `%s — ${SITE_NAME}`,
 	description: SITE_NAME,
 	canonical: SITE_URL,
@@ -13,14 +14,17 @@ export default {
 		site_name: SITE_NAME,
 		images: [
 			{
-				url: `${SITE_URL}/images/logo.png`,
-				width: 800,
-				height: 600,
+				url: "https://advocateblm.com/images/logo.png",
+				width: 200,
+				height: 200,
 				alt: SITE_NAME,
 			},
 		],
 	},
 	twitter: {
 		cardType: "summary_large_image",
+		site: SITE_NAME,
 	},
 }
+
+export default SeoProps

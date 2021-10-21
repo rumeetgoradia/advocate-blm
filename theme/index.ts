@@ -1,50 +1,52 @@
-import { createMuiTheme } from "@material-ui/core"
+import { extendTheme } from "@chakra-ui/react"
+import { StyleFunctionProps } from "@chakra-ui/theme-tools"
 
-declare module "@material-ui/core/styles/createPalette" {
-	interface TypeBackground {
-		gradient: string
-	}
-}
-
-const theme = createMuiTheme({
-	palette: {
-		text: {
-			primary: "#f5f5f5",
-			secondary: "#f8f8ff",
-		},
-		background: {
-			default: "rgb(18, 20, 21)",
-			gradient:
-				"radial-gradient(at bottom left, rgb(24, 26, 27), rgb(18, 20, 21), black)",
-		},
-	},
-	typography: {
-		fontFamily: [
-			'"Inter"',
-			"-apple-system",
-			"BlinkMacSystemFont",
-			'"Segoe UI"',
-			"Roboto",
-			'"Helvetica Neue"',
-			"Arial",
-			"sans-serif",
-			'"Apple Color Emoji"',
-			'"Segoe UI Emoji"',
-			'"Segoe UI Symbol"',
-		].join(","),
-		fontSize: 16,
-	},
-	overrides: {
-		MuiCssBaseline: {
-			"@global": {
-				html: {
-					scrollBehavior: "smooth",
-				},
-				body: {
-					scrollBehavior: "smooth",
-				},
+const theme = extendTheme({
+	styles: {
+		global: (props: StyleFunctionProps) => ({
+			html: {
+				scrollBehavior: "smooth",
+				bg: "black",
+				color: "white",
 			},
+			body: {
+				scrollBehavior: "smooth",
+				bg: "black",
+				color: "white",
+			},
+			"::-webkit-scrollbar-track": {
+				background: "black",
+			},
+			"::-webkit-scrollbar-thumb": {
+				background: "gray.700",
+				border: "4px solid rgba(0, 0, 0, 0)",
+				backgroundClip: "padding-box",
+				borderRadius: "9999px",
+			},
+			"::-webkit-scrollbar": {
+				width: "14px",
+			},
+		}),
+	},
+	colors: {
+		gray: {
+			"50": "#fafafa",
+			"100": "#f5f5f5",
+			"200": "#eeeeee",
+			"300": "#e0e0e0",
+			"400": "#bdbdbd",
+			"500": "#9e9e9e",
+			"600": "#757575",
+			"700": "#616161",
+			"800": "#424242",
+			"900": "#212121",
 		},
+		white: "#f5f5f5",
+		black: "#212121",
+	},
+	fonts: {
+		heading: "HeeboVariable",
+		body: "HeeboVariable",
 	},
 })
 
