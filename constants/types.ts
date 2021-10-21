@@ -1,3 +1,4 @@
+/* Contentful */
 export type Argument = {
 	title: string
 	slug: string
@@ -38,4 +39,11 @@ export type ContentfulArgumentItem = {
 	sys: {
 		id: string
 	}
+}
+
+/* Navigation */
+export type NavItem = {
+	title: string
+	path: string
+	icon: React.ReactElement
 }

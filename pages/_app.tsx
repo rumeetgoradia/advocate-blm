@@ -1,4 +1,5 @@
 import { Chakra } from "@components/Chakra"
+import { Navbar } from "@components/Navbar"
 import "@fontsource/heebo/variable.css"
 import theme from "@theme"
 import { DefaultSeo } from "next-seo"
@@ -10,6 +11,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		<>
 			<DefaultSeo {...SeoProps} />
 			<Chakra cookies={pageProps.cookies} theme={theme}>
+				<Navbar />
 				<Component {...pageProps} />
 			</Chakra>
 		</>
