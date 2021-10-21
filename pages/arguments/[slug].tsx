@@ -1,4 +1,9 @@
 import { Box } from "@chakra-ui/layout"
+import {
+	Argument,
+	Argument as ArgumentPage,
+	ContentfulArgumentItem,
+} from "constants/types"
 import { createClient } from "contentful"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 
@@ -10,7 +15,7 @@ const client = createClient({
 export const getStaticPaths: GetStaticPaths = async () => {
 	const res = await client.getEntries({ content_type: "argument" })
 
-	const paths = res.items.map((item) => {
+	const paths = (res.items as ContentfulArgumentItem[]).map((item) => {
 		return {
 			params: {
 				slug: item.fields.slug,
@@ -44,9 +49,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	}
 }
 
-const Argument: NextPage = ({ argument }) => {
-	console.log(argument)
+type ArgumentPageProps = {
+	argument: Argument
+}
 
+const ArgumentPage: NextPage<ArgumentPageProps> = ({ argument }) => {
 	if (!argument) return <div>loading</div>
 
 	return (
@@ -56,4 +63,4 @@ const Argument: NextPage = ({ argument }) => {
 	)
 }
 
-export default Argument
+export default ArgumentPage
