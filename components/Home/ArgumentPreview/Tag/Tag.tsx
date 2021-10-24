@@ -17,12 +17,13 @@ const Tag: React.FC<TagProps> = ({ children, path }) => {
 						letterSpacing="2px"
 						textTransform="uppercase"
 						fontSize="smaller"
-						borderRadius="md"
+						borderRadius="sm"
 						color="black"
 						bg="white"
-						py={2}
+						pt={2}
+						pb="calc(0.5rem - 1px)"
 						pl={3}
-						pr={"calc(0.75rem - 2px)"}
+						pr="calc(0.75rem - 2px)"
 						transition={createTransition("opacity")}
 						_hover={{
 							opacity: 1,
