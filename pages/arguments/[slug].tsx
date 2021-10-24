@@ -1,9 +1,5 @@
 import { Box } from "@chakra-ui/layout"
-import {
-	Argument,
-	Argument as ArgumentPage,
-	ContentfulArgumentItem,
-} from "constants/types"
+import { Argument, ContentfulArgumentItem } from "constants/types"
 import { createClient } from "contentful"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 

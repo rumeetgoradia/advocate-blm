@@ -1,16 +1,17 @@
 import { IconButton } from "@chakra-ui/button"
 import { Input, InputRightElement } from "@chakra-ui/input"
-import { Box, Text } from "@chakra-ui/layout"
+import { Box } from "@chakra-ui/layout"
 import { InputGroup } from "@chakra-ui/react"
 import { useTheme } from "@chakra-ui/system"
-import { Header } from "@components/Home"
+import { ArgumentPreview, Header } from "@components/Home"
 import { Layout } from "@components/Layout"
+import { Argument, ContentfulArgumentItem } from "@constants"
 import { fade } from "@utils"
-import { Argument, ContentfulArgumentItem } from "constants/types"
 import { createClient } from "contentful"
 import type { GetStaticProps, NextPage } from "next"
 import { useEffect, useState } from "react"
 import { GoSearch } from "react-icons/go"
+import Masonry from "react-masonry-css"
 
 export const getStaticProps: GetStaticProps = async () => {
 	const client = createClient({
@@ -108,10 +109,34 @@ const HomePage: NextPage<HomePageProps> = ({ contentfulArgumentItems }) => {
 					/>
 				</InputRightElement>
 			</InputGroup>
-			<Box h="20000px">
-				{filteredArguments.map((argument) => (
-					<Text key={argument.title}>{argument.title}</Text>
-				))}
+			<Box
+				pt={8}
+				w="full"
+				userSelect="none"
+				sx={{
+					".argument-preview-grid": {
+						display: "flex",
+						ml: -5,
+						w: "auto",
+					},
+					".argument-preview-grid-col": {
+						pl: 5,
+						bgClip: "padding-box",
+					},
+				}}
+			>
+				<Masonry
+					className="argument-preview-grid"
+					columnClassName="argument-preview-grid-col"
+					breakpointCols={{ default: 2, 640: 1 }}
+				>
+					{filteredArguments.map((argument) => (
+						<ArgumentPreview
+							argument={argument}
+							key={`${argument.slug}-argument-preview`}
+						/>
+					))}
+				</Masonry>
 			</Box>
 		</Layout>
 	)

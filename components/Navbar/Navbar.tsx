@@ -1,7 +1,7 @@
 import { Box, Container, HStack, Link } from "@chakra-ui/layout"
 import { useTheme } from "@chakra-ui/system"
+import { NAV_ITEMS } from "@constants"
 import { createTransition, fade } from "@utils"
-import { NAV_ITEMS } from "constants/navigation"
 import { useRouter } from "next/dist/client/router"
 import NextLink from "next/link"
 import { useEffect, useState } from "react"
