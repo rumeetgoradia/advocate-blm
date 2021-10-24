@@ -24,21 +24,13 @@ class MyDocument extends Document {
 						href="/favicons/favicon-16x16.png"
 					/>
 					<link rel="manifest" href="/favicons/site.webmanifest" />
-					<link
-						rel="mask-icon"
-						href="/favicons/safari-pinned-tab.svg"
-						color="#34926e"
-					/>
 					<link rel="shortcut icon" href="/favicons/favicon.ico" />
-					<meta name="apple-mobile-web-app-title" content="Rumeet Goradia" />
-					<meta name="application-name" content="Rumeet Goradia" />
-					<meta name="msapplication-TileColor" content="#00a300" />
+					<meta name="msapplication-TileColor" content="#212121" />
 					<meta
 						name="msapplication-config"
 						content="/favicons/browserconfig.xml"
 					/>
-					<meta name="theme-color" content="#111820" />
-					<meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+					<meta name="theme-color" content="#f5f5f5" />
 				</Head>
 				<body>
 					<Main />

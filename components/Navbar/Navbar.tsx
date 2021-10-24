@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
 			zIndex={9999}
 			w="full"
 			px={8}
-			py={0}
+			pt={1}
 			bg={fade(theme.colors["black"], 0.9)} //background
 			backdropFilter="saturate(180%) blur(5px)"
 			transition={createTransition("padding")}

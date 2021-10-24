@@ -1,9 +1,9 @@
 import { Box } from "@chakra-ui/layout"
-import { SITE_NAME } from "@constants"
+import { Header } from "@components/Home"
+import { Layout } from "@components/Layout"
 import { ContentfulArgumentItem } from "constants/types"
 import { createClient } from "contentful"
 import type { GetStaticProps, NextPage } from "next"
-import { NextSeo } from "next-seo"
 
 export const getStaticProps: GetStaticProps = async () => {
 	const client = createClient({
@@ -27,17 +27,17 @@ type HomePageProps = {
 
 const HomePage: NextPage<HomePageProps> = ({ argumentz }) => {
 	return (
-		<>
-			<NextSeo titleTemplate="%s" title={SITE_NAME} />
+		<Layout isHomePage>
+			<Header />
 			<Box h="20000px">
-				{argumentz.map((argument) => (
-					<>
-						{argument.fields.title}
-						<br />
-					</>
-				))}
+				{/* {argumentz.map((argument) => (
+							<>
+								{argument.fields.title}
+								<br />
+							</>
+						))} */}
 			</Box>
-		</>
+		</Layout>
 	)
 }
 
