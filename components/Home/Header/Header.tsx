@@ -1,20 +1,34 @@
 import { Box, Flex, Heading } from "@chakra-ui/layout"
+import { useTheme } from "@chakra-ui/system"
 import { Fist } from "@components/Fist"
 const Header: React.FC = () => {
+	const theme = useTheme()
+
 	return (
-		<Flex justify="space-between" mb={8}>
+		<Flex justify="space-between" mb={{ base: 3, sm: 6, md: 8 }}>
 			<Box pr={8}>
 				<Heading
-					fontWeight={800}
+					fontWeight={700}
 					fontSize={{ base: "4xl", sm: "6xl", md: "7xl" }}
 					letterSpacing="-2px"
 				>
-					Advocate BLM
+					Advocate{" "}
+					<Box
+						as="span"
+						fontWeight={900}
+						sx={{
+							"-webkit-text-fill-color": theme.colors.black,
+							"-webkit-text-stroke-width": "1px",
+							"-webkit-text-stroke-color": theme.colors.white,
+						}}
+					>
+						BLM
+					</Box>
 				</Heading>
 				<Heading
 					as="h2"
-					fontSize={{ base: "lg", md: "xl" }}
-					fontWeight={400}
+					fontSize={{ base: "md", sm: "lg", md: "xl" }}
+					fontWeight={{ base: 300 }}
 					opacity={0.75}
 				>
 					Providing objectivity in the fight for Black Lives Matter.

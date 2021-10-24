@@ -45,8 +45,8 @@ const theme = extendTheme({
 		black: "#212121",
 	},
 	fonts: {
-		heading: "HeeboVariable",
-		body: "HeeboVariable",
+		heading: "Roboto",
+		body: "Roboto",
 	},
 })
 
