@@ -1,6 +1,6 @@
-import { Heading, Text, VStack } from "@chakra-ui/layout"
+import { Grid, Heading, VStack } from "@chakra-ui/layout"
 import { Box } from "@chakra-ui/react"
-import { ArgumentContent } from "@components/Argument"
+import { ArgumentContent, SourceDisplay } from "@components/Argument"
 import { ContentSection, PageLayout } from "@components/Layout"
 import { ContentfulArgumentItem } from "constants/types"
 import { createClient } from "contentful"
@@ -178,9 +178,24 @@ const ArgumentPage: NextPage<ArgumentPageProps> = ({
 					</ContentSection>
 				)}
 				{sources && (
-					<ContentSection title="Sources" h="2000px" position="relative">
+					<ContentSection title="Sources" position="relative">
 						<Box position="absolute" top="-3.75rem" id="sources" h={1} w={1} />
-						<Text>Source</Text>
+						<Grid
+							templateColumns={{
+								base: "repeat(1, 1fr)",
+								sm: "repeat(2, 1fr)",
+								md: "repeat(3, 1fr)",
+							}}
+							gap={2}
+						>
+							{sources.map((source, index) => (
+								<SourceDisplay
+									source={source}
+									sourceNum={index + 1}
+									key={`${source.url}-source`}
+								/>
+							))}
+						</Grid>
 					</ContentSection>
 				)}
 			</VStack>
