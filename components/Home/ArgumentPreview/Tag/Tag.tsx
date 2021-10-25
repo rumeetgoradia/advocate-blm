@@ -9,7 +9,11 @@ const Tag: React.FC<TagProps> = ({ children, path }) => {
 	return (
 		<Box mb={1} ml={1}>
 			<NextLink href={path} passHref>
-				<Link>
+				<Link
+					userSelect="none"
+					textDecoration="none"
+					_focus={{ outline: "none" }}
+				>
 					<Text
 						as="h4"
 						opacity={0.75}

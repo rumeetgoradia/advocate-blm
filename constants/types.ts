@@ -12,6 +12,7 @@ export type Argument = {
 export type Evidence = {
 	text: string
 	sourceNum: number
+	sourceInfo?: string
 }
 
 export type Source = {
@@ -28,8 +29,8 @@ export type ContentfulImage = {
 					height: number
 					width: number
 				}
-				url: string
 			}
+			url: string
 		}
 	}
 }

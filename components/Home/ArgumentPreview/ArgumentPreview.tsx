@@ -13,7 +13,11 @@ const ArgumentPreview: React.FC<ArgumentPreviewProps> = ({ argument }) => {
 
 	return (
 		<NextLink href={path} passHref>
-			<Link textDecoration="none !important">
+			<Link
+				userSelect="none"
+				textDecoration="none !important"
+				_focus={{ outline: "none" }}
+			>
 				<Box
 					cursor="pointer"
 					px={6}
@@ -23,8 +27,8 @@ const ArgumentPreview: React.FC<ArgumentPreviewProps> = ({ argument }) => {
 					opacity={0.75}
 					transition={createTransition("opacity")}
 					borderColor="white"
-					border="1px"
-					borderRadius="xl"
+					border="2px"
+					borderRadius="lg"
 					_hover={{ opacity: 1 }}
 				>
 					<Heading as="h3" size="lg" mb={6} letterSpacing="-1px">

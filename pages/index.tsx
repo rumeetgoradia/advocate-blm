@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/layout"
 import { InputGroup } from "@chakra-ui/react"
 import { useTheme } from "@chakra-ui/system"
 import { ArgumentPreview, Header } from "@components/Home"
-import { Layout } from "@components/Layout"
+import { PageLayout } from "@components/Layout"
 import { Argument, ContentfulArgumentItem } from "@constants"
 import { fade } from "@utils"
 import { createClient } from "contentful"
@@ -41,6 +41,8 @@ const HomePage: NextPage<HomePageProps> = ({ contentfulArgumentItems }) => {
 		(argumentItem) => argumentItem.fields
 	)
 
+	console.log(argumentz)
+
 	const [filteredArguments, setFilteredArguments] =
 		useState<Argument[]>(argumentz)
 	const [filter, setFilter] = useState<string>()
@@ -74,7 +76,7 @@ const HomePage: NextPage<HomePageProps> = ({ contentfulArgumentItems }) => {
 	const theme = useTheme()
 
 	return (
-		<Layout isHomePage>
+		<PageLayout isHomePage>
 			<Header />
 			<InputGroup>
 				<Input
@@ -95,13 +97,17 @@ const HomePage: NextPage<HomePageProps> = ({ contentfulArgumentItems }) => {
 						icon={<GoSearch />}
 						bg="transparent"
 						borderRadius="50%"
+						color="white"
+						opacity={0.75}
 						_hover={{
 							bg: "transparent",
 							transform: "scale(1.05)",
+							opacity: 1,
 						}}
 						_focus={{
 							bg: "transparent",
 							transform: "scale(1.05)",
+							opacity: 1,
 						}}
 						_active={{
 							transform: "scale(0.95)",
@@ -138,7 +144,7 @@ const HomePage: NextPage<HomePageProps> = ({ contentfulArgumentItems }) => {
 					))}
 				</Masonry>
 			</Box>
-		</Layout>
+		</PageLayout>
 	)
 }
 

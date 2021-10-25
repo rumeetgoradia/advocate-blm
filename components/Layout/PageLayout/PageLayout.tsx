@@ -3,7 +3,7 @@ import { Container } from "@chakra-ui/react"
 import { SITE_NAME } from "@constants"
 import { NextSeo } from "next-seo"
 
-type LayoutProps =
+type PageLayoutProps =
 	| {
 			isHomePage: true
 			title?: never
@@ -13,7 +13,11 @@ type LayoutProps =
 			title: string
 	  }
 
-const Layout: React.FC<LayoutProps> = ({ children, isHomePage, title }) => {
+const PageLayout: React.FC<PageLayoutProps> = ({
+	children,
+	isHomePage,
+	title,
+}) => {
 	return (
 		<>
 			<NextSeo
@@ -29,4 +33,4 @@ const Layout: React.FC<LayoutProps> = ({ children, isHomePage, title }) => {
 	)
 }
 
-export default Layout
+export default PageLayout

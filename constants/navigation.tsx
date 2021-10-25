@@ -13,7 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
 		icon: <FaInfoCircle />,
 	},
 	{
-		title: "Request / Submit",
+		title: "Submit Argument",
 		path: "/submit",
 		icon: <FaPencilAlt />,
 	},
