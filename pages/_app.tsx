@@ -1,5 +1,6 @@
 import { Chakra } from "@components/Chakra"
 import { Navbar } from "@components/Navbar"
+import { ScrollToTop } from "@components/ScrollToTop"
 import "@fontsource/roboto/latin-300.css"
 import "@fontsource/roboto/latin-400-italic.css"
 import "@fontsource/roboto/latin-400.css"
@@ -17,6 +18,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			<DefaultSeo {...SeoProps} />
 			<Chakra cookies={pageProps.cookies} theme={theme}>
 				<Navbar />
+				<ScrollToTop />
 				<Component {...pageProps} />
 			</Chakra>
 		</>

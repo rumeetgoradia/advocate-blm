@@ -1,6 +1,7 @@
 import { Flex, Link, Text } from "@chakra-ui/layout"
+import { useTheme } from "@chakra-ui/system"
 import { Source } from "@constants"
-import { createTransition } from "@utils"
+import { createTransition, fade } from "@utils"
 
 type SourceDisplayProps = {
 	source: Source
@@ -9,6 +10,8 @@ type SourceDisplayProps = {
 
 const SourceDisplay: React.FC<SourceDisplayProps> = ({ source, sourceNum }) => {
 	const { title, url, year } = source
+
+	const theme = useTheme()
 
 	return (
 		<Link
@@ -25,7 +28,7 @@ const SourceDisplay: React.FC<SourceDisplayProps> = ({ source, sourceNum }) => {
 				w="full"
 				justify="center"
 				align="center"
-				bg="gray.800"
+				bg={fade(theme.colors.gray[800], 0.35)}
 				borderRadius="md"
 				overflow="hidden"
 				py={4}

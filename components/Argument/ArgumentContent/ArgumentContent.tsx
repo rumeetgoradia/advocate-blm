@@ -1,8 +1,9 @@
 import { useDisclosure } from "@chakra-ui/hooks"
 import { Box, Link, Text } from "@chakra-ui/layout"
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal"
+import { useTheme } from "@chakra-ui/system"
 import { ContentfulImage } from "@constants"
-import { createTransition } from "@utils"
+import { createTransition, fade } from "@utils"
 import NextImage from "next/image"
 
 type ArgumentContentProps = (
@@ -26,6 +27,8 @@ const ArgumentContent: React.FC<ArgumentContentProps> = ({
 }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
 
+	const theme = useTheme()
+
 	return (
 		<>
 			<Box
@@ -36,7 +39,7 @@ const ArgumentContent: React.FC<ArgumentContentProps> = ({
 				pb={4}
 				borderRadius="lg"
 				mb={5}
-				bg="gray.800"
+				bg={fade(theme.colors.gray[800], 0.35)}
 				opacity={0.75}
 				transition={createTransition(["background", "opacity"])}
 				_hover={{
