@@ -3,7 +3,7 @@ import { Input, InputRightElement } from "@chakra-ui/input"
 import { Box } from "@chakra-ui/layout"
 import { InputGroup } from "@chakra-ui/react"
 import { useTheme } from "@chakra-ui/system"
-import { ArgumentPreview, Header } from "@components/Home"
+import { ArgumentPreview } from "@components/Home"
 import { PageLayout } from "@components/Layout"
 import { Argument, ContentfulArgumentItem } from "@constants"
 import { fade } from "@utils"
@@ -77,7 +77,6 @@ const HomePage: NextPage<HomePageProps> = ({ contentfulArgumentItems }) => {
 
 	return (
 		<PageLayout isHomePage>
-			<Header />
 			<InputGroup>
 				<Input
 					placeholder="Search an argument..."

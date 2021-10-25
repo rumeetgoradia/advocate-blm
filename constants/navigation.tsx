@@ -18,7 +18,7 @@ export const NAV_ITEMS: NavItem[] = [
 		icon: <FaPencilAlt />,
 	},
 	{
-		title: "Donate [external link]",
+		title: "Donate [external]",
 		path: "https://blacklivesmatters.carrd.co/#donate",
 		icon: <FaDollarSign />,
 	},

@@ -2,8 +2,9 @@ import { Box } from "@chakra-ui/layout"
 import { Container } from "@chakra-ui/react"
 import { SITE_NAME } from "@constants"
 import { NextSeo } from "next-seo"
+import { Header } from "./Header"
 
-type PageLayoutProps =
+type PageLayoutProps = (
 	| {
 			isHomePage: true
 			title?: never
@@ -12,10 +13,14 @@ type PageLayoutProps =
 			isHomePage?: false
 			title: string
 	  }
+) & {
+	isMainPage?: boolean
+}
 
 const PageLayout: React.FC<PageLayoutProps> = ({
 	children,
 	isHomePage,
+	isMainPage,
 	title,
 }) => {
 	return (
@@ -24,8 +29,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 				title={isHomePage ? SITE_NAME : title}
 				titleTemplate={isHomePage ? "%s" : `%s — ${SITE_NAME}`}
 			/>
-			<Box px={4}>
-				<Container maxW="container.md" pt={20} pb={8}>
+			<Box px={4} minH="100vh">
+				<Container maxW="container.md" pt="4.5rem" pb={8}>
+					{(isHomePage || isMainPage) && <Header />}
 					{children}
 				</Container>
 			</Box>

@@ -15,6 +15,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
 		<Box role="group" id={id} w="full" {...props}>
 			<Heading
 				as="h2"
+				userSelect="none"
 				display="inline-block"
 				fontSize={{ base: "lg", sm: "2xl" }}
 				fontWeight={500}

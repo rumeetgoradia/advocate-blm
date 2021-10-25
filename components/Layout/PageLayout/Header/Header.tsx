@@ -6,10 +6,10 @@ const Header: React.FC = () => {
 
 	return (
 		<Flex justify="space-between" mb={{ base: 3, sm: 6, md: 8 }}>
-			<Box pr={8}>
+			<Box pr={{ base: 0, sm: 8 }}>
 				<Heading
 					fontWeight={700}
-					fontSize={{ base: "4xl", sm: "6xl", md: "7xl" }}
+					fontSize={{ base: "5xl", sm: "6xl", md: "7xl" }}
 					letterSpacing="-2px"
 				>
 					Advocate{" "}
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 				</Heading>
 				<Heading
 					as="h2"
-					fontSize={{ base: "md", sm: "lg", md: "xl" }}
+					fontSize={{ base: "lg", md: "xl" }}
 					fontWeight={{ base: 300 }}
 					opacity={0.75}
 				>
