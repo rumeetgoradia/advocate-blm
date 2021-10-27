@@ -41,8 +41,6 @@ const HomePage: NextPage<HomePageProps> = ({ contentfulArgumentItems }) => {
 		(argumentItem) => argumentItem.fields
 	)
 
-	console.log(argumentz)
-
 	const [filteredArguments, setFilteredArguments] =
 		useState<Argument[]>(argumentz)
 	const [filter, setFilter] = useState<string>()

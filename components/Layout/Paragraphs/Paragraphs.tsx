@@ -4,7 +4,7 @@ import { createTransition } from "@utils"
 const Paragraphs: React.FC<StackProps> = ({ children, ...props }) => {
 	return (
 		<VStack
-			mt={{ sm: -3 }}
+			mt={{ base: -2, sm: -3 }}
 			justify="flex-start"
 			align="flex-start"
 			spacing={5}

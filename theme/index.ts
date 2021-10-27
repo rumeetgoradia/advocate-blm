@@ -1,5 +1,6 @@
 import { extendTheme } from "@chakra-ui/react"
 import { StyleFunctionProps } from "@chakra-ui/theme-tools"
+import { createTransition } from "@utils"
 
 const theme = extendTheme({
 	styles: {
@@ -29,6 +30,87 @@ const theme = extendTheme({
 				width: "14px",
 			},
 		}),
+	},
+	components: {
+		Input: {
+			variants: {
+				filled: {
+					field: {
+						bg: "rgba(66,66,66,0.35)",
+						opacity: 0.75,
+						px: 3,
+
+						_hover: {
+							bg: "rgba(66,66,66,0.675)",
+							opacity: 1,
+						},
+						_focus: {
+							bg: "gray.800",
+							borderColor: "gray.800",
+							outline: "none",
+							opacity: 1,
+							"&[aria-invalid=true], &[data-invalid]": {
+								borderColor: "#E53E3E",
+							},
+						},
+					},
+				},
+			},
+		},
+		Textarea: {
+			variants: {
+				filled: {
+					bg: "rgba(66,66,66,0.35)",
+					opacity: 0.75,
+					px: 3,
+
+					_hover: {
+						bg: "rgba(66,66,66,0.675)",
+						opacity: 1,
+					},
+					_focus: {
+						bg: "gray.800",
+						borderColor: "gray.800",
+						outline: "none",
+						opacity: 1,
+						"&[aria-invalid=true], &[data-invalid]": {
+							borderColor: "#E53E3E",
+						},
+					},
+				},
+			},
+			defaultProps: {
+				resize: "vertical",
+			},
+		},
+		Checkbox: {
+			baseStyle: {
+				control: {
+					bg: "rgba(66,66,66,0.375)",
+					opacity: 0.75,
+					border: "none",
+					transition: createTransition(["opacity", "background-color"]),
+					_hover: {
+						opacity: 1,
+						bg: "rgba(66,66,66,0.675)",
+					},
+					_focus: {
+						bg: "gray.800",
+						boxShadow: "",
+					},
+					_checked: {
+						bg: "rgba(66,66,66,0.375)",
+						_hover: {
+							bg: "rgba(66,66,66,0.675)",
+						},
+					},
+				},
+				label: {
+					ml: 4,
+					fontSize: "sm",
+				},
+			},
+		},
 	},
 	colors: {
 		gray: {

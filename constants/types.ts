@@ -48,3 +48,13 @@ export type NavItem = {
 	path: string
 	icon: React.ReactElement
 }
+
+/* Argument Submission */
+export type SubmissionData = {
+	name: string
+	email: string
+	attribution?: boolean
+	argument: string
+	facts?: string
+	assertions?: string
+}
