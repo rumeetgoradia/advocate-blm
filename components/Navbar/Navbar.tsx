@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
 			sx={{
 				"@supports not (backdrop-filter: none)": {
 					backdropFilter: "none",
-					bg: "white",
+					bg: "black",
 				},
 			}}
 		>
