@@ -2,23 +2,63 @@ import { Button } from "@chakra-ui/button"
 import { Checkbox } from "@chakra-ui/checkbox"
 import { Input } from "@chakra-ui/input"
 import { Box, Flex, GridItem, Text, VStack } from "@chakra-ui/layout"
-import { Grid } from "@chakra-ui/react"
+import { Grid, useToast } from "@chakra-ui/react"
 import { Textarea } from "@chakra-ui/textarea"
 import { FormItem, FormLabelNote } from "@components/Form"
 import { ContentSection, PageLayout, Paragraphs } from "@components/Layout"
 import { EMAIL_REGEX, SubmissionData } from "@constants"
 import { createTransition } from "@utils"
 import type { NextPage } from "next"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 
 const SubmitPage: NextPage = () => {
+	const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isSubmitting },
+		formState: { errors },
+		reset,
 	} = useForm<SubmissionData>()
 
-	const onSubmit = (values: SubmissionData) => {}
+	const toast = useToast()
+
+	const onSubmit = (values: SubmissionData) => {
+		setIsSubmitting(true)
+		fetch("/api/submit", {
+			method: "POST",
+			headers: {
+				Accept: "application/json, text/plain, */*",
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(values),
+		}).then((res) => {
+			if (res.status === 200) {
+				toast({
+					title: "Argument submitted!",
+					description:
+						"Your submission has been received. Thank you for your contribution!",
+					status: "success",
+					duration: 5000,
+					isClosable: true,
+					position: "top-right",
+					onCloseComplete: reset,
+				})
+			} else {
+				toast({
+					title: "Error!",
+					description:
+						"We ran into a problem processing your submission. Please try again later!",
+					status: "error",
+					duration: 5000,
+					isClosable: true,
+					position: "top-right",
+				})
+			}
+			setIsSubmitting(false)
+		})
+	}
 
 	return (
 		<PageLayout title="Submit Argument" isMainPage>
@@ -42,6 +82,7 @@ const SubmitPage: NextPage = () => {
 						</Text>
 					</Paragraphs>
 					<form onSubmit={handleSubmit(onSubmit)}>
+						<Input type="hidden" name="url" />
 						<Grid templateColumns="repeat(4, 1fr)" gap={5}>
 							<GridItem colSpan={{ base: 4, sm: 2 }}>
 								<FormItem label="name" isRequired error={errors.name}>
@@ -126,6 +167,7 @@ const SubmitPage: NextPage = () => {
 							<GridItem colSpan={{ base: 4, md: 1 }}>
 								<Button
 									isLoading={isSubmitting}
+									isDisabled={isSubmitting}
 									type="submit"
 									w="full"
 									bg="gray.800"

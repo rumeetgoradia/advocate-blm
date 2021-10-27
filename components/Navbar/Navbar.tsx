@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
 			position="fixed"
 			top={0}
 			left={0}
-			zIndex={9999}
+			zIndex={1698}
 			w="full"
 			px={8}
 			pt={1}
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
 									position: "absolute",
 									bottom: "0px",
 									left: "50%",
-									zIndex: 10000,
+									zIndex: 1699,
 									bg: "white",
 									transform: "translateX(-50%)",
 									transition: createTransition("width"),
