@@ -1,11 +1,23 @@
-import { Box } from "@chakra-ui/layout"
+import { Heading } from "@chakra-ui/layout"
+import { PageLayout } from "@components/Layout"
 import type { NextPage } from "next"
 
 const _404Page: NextPage = () => {
 	return (
-		<>
-			<Box h="20000px">404 my guy</Box>
-		</>
+		<PageLayout isMainPage title="Not Found">
+			<Heading
+				as="h3"
+				textAlign="center"
+				fontWeight={300}
+				fontSize="8xl"
+				mt={20}
+			>
+				404
+			</Heading>
+			<Heading as="h4" textAlign="center" fontWeight={400}>
+				There&apos;s nothing here.
+			</Heading>
+		</PageLayout>
 	)
 }
 
