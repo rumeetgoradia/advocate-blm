@@ -9,6 +9,7 @@ type FormItemProps = {
 	label: string
 	error?: FieldError
 	isRequired?: boolean
+	children: React.ReactNode
 }
 
 const FormItem: React.FC<FormItemProps> = ({

@@ -15,6 +15,7 @@ type PageLayoutProps = (
 	  }
 ) & {
 	isMainPage?: boolean
+	children: React.ReactNode
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({

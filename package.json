@@ -9,31 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.10",
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "@fontsource/roboto": "^4.5.1",
-    "@plaiceholder/next": "^2.1.0",
-    "contentful": "^9.1.3",
-    "dotenv": "^10.0.0",
-    "framer-motion": "^4.1.17",
-    "next": "11.1.2",
-    "next-seo": "^4.28.1",
-    "nodemailer": "^6.7.0",
-    "plaiceholder": "^2.0.1",
-    "preact": "^10.5.15",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-hook-form": "^7.17.5",
+    "@chakra-ui/react": "^1.8.8",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@fontsource/roboto": "^4.5.5",
+    "@plaiceholder/next": "^2.3.0",
+    "contentful": "^9.1.25",
+    "dotenv": "^16.0.0",
+    "framer-motion": "^6.3.2",
+    "next": "12.1.5",
+    "next-seo": "^5.4.0",
+    "nodemailer": "^6.7.3",
+    "plaiceholder": "^2.3.0",
+    "preact": "^10.7.1",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-hook-form": "^7.30.0",
     "react-icons": "^4.3.1",
     "react-masonry-css": "^1.0.16",
-    "sharp": "^0.29.2"
+    "sharp": "^0.30.4"
   },
   "devDependencies": {
     "@types/nodemailer": "^6.4.4",
-    "@types/react": "17.0.31",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
-    "typescript": "4.4.4"
+    "@types/react": "18.0.8",
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.5",
+    "typescript": "4.6.3"
   }
 }
